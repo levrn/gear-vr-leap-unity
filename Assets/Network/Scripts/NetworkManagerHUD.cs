@@ -11,6 +11,7 @@ namespace UnityEngine.Networking
 		GameObject client;
 		GameObject inputField;
 		GameObject joinGame;
+		GameObject startServer;
 		GameObject ipAddressText;
 		public ButtonCheck buttonCheck;
 		public NetworkManager manager;
@@ -31,12 +32,14 @@ namespace UnityEngine.Networking
 			ipAddressText = GameObject.Find("IP Address Text");
 			inputField = GameObject.Find("IP Address");
 			joinGame = GameObject.Find("Join Game");
+			startServer = GameObject.Find("Start Server");
 			buttonCheck = GetComponent<ButtonCheck>();
 			manager = GetComponent<NetworkManager>();
 
 			ipAddressText.SetActive(false);
 			inputField.SetActive(false);
 			joinGame.SetActive(false);
+			startServer.SetActive(false);
 		}
 
 		void Update()
@@ -86,11 +89,8 @@ namespace UnityEngine.Networking
 
 				if (buttonCheck.CheckObjectPressed() != null && buttonCheck.CheckObjectPressed() == server)
 				{
-					manager.StartServer();
-					if (server.activeInHierarchy)
-					{
-						server.SetActive(false);
-					}
+					startServer.SetActive(true);
+					server.SetActive(false);
 					client.SetActive(false);
 					ipAddressText.SetActive(true);
 				}

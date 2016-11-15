@@ -24,5 +24,12 @@ function AfterTyping(){
 }
 
 function JoinGame(){
+	Debug.Log(manager);
 	manager.StartClient();
+}
+
+function StartServer(){
+	Debug.Log(manager);
+	manager.singleton.networkPort = 7777;
+	manager.singleton.StartServer();
 }
