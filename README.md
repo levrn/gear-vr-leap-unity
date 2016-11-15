@@ -32,7 +32,7 @@ Conceptually, this is a simple multiplayer game where the movement of one player
 5. Build the project for android and have it run on your smartphone.
 6. Run the project on your computer too.
 7. On the android smartphone, click "Server". The IP address of the device will be displayed.
-8. On the PC, enter the IP address of the server, then click "Client".
+8. On the PC, click "Client". Then enter the IP address of the server, 
 9. On the android smartphone, click "Start Server" (to begin the online session).
 10. On the PC, click "Join Game" (to join this session).
 11. Now you may move your hands over the leap motion and watch your actions be mirrored on the smartphone.
