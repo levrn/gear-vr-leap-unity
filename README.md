@@ -41,6 +41,8 @@ With this as a base/starter project, you can proceed to build your Leap controll
 
 ## Screenshots
 
+![screenshots](http://res.cloudinary.com/duswj2lve/raw/upload/v1479255981/gearleap-shots_equvx3.jpg)
+
 
 ## Contributing
 
