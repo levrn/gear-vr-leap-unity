@@ -16,11 +16,16 @@ The client player consists of two custom knobby hand prefabs (created following 
 
 The client player will be spawned on the server with it's `Transform` being sent over the local network to the server using Unity's `NetworkTransform` and `NetworkTransformChild`. 
 
+
 Conceptually, this is a simple multiplayer game where the movement of one player gets streamed for the other player to view. 
+
 
 ### High level schematic
 
 ![high level schematic](http://res.cloudinary.com/duswj2lve/raw/upload/v1479252306/Levrn_-_4_kstjln.jpg)
+
+### Note
+The Rigidbody version of the hands (separate Leap provided GameObject that contains the colliders of the fingers) is not set to stream its movement to the mobile app. This can be done by adding more `NetworkTransformChild` components and putting the bone colliders as the target transform.
 
 ## Example(s)
 You can download the example APK and EXE [here](https://drive.google.com/open?id=0B7FfLbKuCDrRUzdKN1JvRW9UQ00)
