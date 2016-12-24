@@ -39,6 +39,7 @@ public class NetworkControl : MonoBehaviour
 
 	public void StartClient()
 	{
+		discovery.Initialize();
 		discovery.StartAsClient();
 		startServer.SetActive(false);
 		startClient.SetActive(false);

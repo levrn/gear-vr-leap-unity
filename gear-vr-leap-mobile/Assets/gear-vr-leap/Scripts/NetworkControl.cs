@@ -39,6 +39,8 @@ public class NetworkControl : MonoBehaviour
 
 	public void StartClient()
 	{
+		discovery.Initialize();
+		discovery.StartAsServer();
 		startServer.SetActive(false);
 		startClient.SetActive(false);
 		joinRoom.SetActive(true);
@@ -49,7 +51,6 @@ public class NetworkControl : MonoBehaviour
 	{
 		if (!NetworkClient.active && !NetworkServer.active && manager.matchMaker == null)
 		{
-			discovery.StartAsServer();
 			manager.StartServer();
 		}
 	}

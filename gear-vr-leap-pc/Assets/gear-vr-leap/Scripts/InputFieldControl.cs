@@ -12,7 +12,7 @@ public class InputFieldControl : MonoBehaviour
 	{
 		GetNecessaryComponents();
 		placeHolder.text = LoadLastIP();
-		manager.networkAddress = placeHolder.text;
+		//manager.networkAddress = placeHolder.text;
 	}
 
 	public void AsTyping()
