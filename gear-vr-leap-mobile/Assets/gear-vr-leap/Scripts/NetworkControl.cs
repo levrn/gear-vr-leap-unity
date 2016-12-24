@@ -11,10 +11,12 @@ public class NetworkControl : MonoBehaviour
 	public GameObject ipText;
 	public GameObject inputField;
 	NetworkManager manager;
+	NetworkDiscovery discovery;
 	// Use this for initialization
 	void Start()
 	{
 		manager = GetComponent<NetworkManager>();
+		discovery = GetComponent<NetworkDiscovery>();
 		createRoom.SetActive(false);
 		joinRoom.SetActive(false);
 		ipText.SetActive(false);
@@ -47,6 +49,7 @@ public class NetworkControl : MonoBehaviour
 	{
 		if (!NetworkClient.active && !NetworkServer.active && manager.matchMaker == null)
 		{
+			discovery.StartAsServer();
 			manager.StartServer();
 		}
 	}

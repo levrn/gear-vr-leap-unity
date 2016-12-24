@@ -18,6 +18,7 @@ public class OverridenNetworkDiscovery : NetworkDiscovery {
 	{
 		base.OnReceivedBroadcast(fromAddress, data);
 		NetworkManager.singleton.networkAddress = fromAddress;
+		Debug.Log(fromAddress);
 		NetworkManager.singleton.StartClient();
 	}
 }
