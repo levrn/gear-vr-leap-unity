@@ -14,6 +14,7 @@ public class NetworkControl : MonoBehaviour
 	{
 		manager = GetComponent<NetworkManager>();
 		discovery = GetComponent<NetworkDiscovery>();
+		discovery.Initialize();
 		createRoom.SetActive(false);
 		ipText.SetActive(false);
 	}
@@ -21,13 +22,15 @@ public class NetworkControl : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-
 	}
 
 	public void StartServer()
 	{
-		discovery.Initialize();
-		discovery.StartAsServer();
+		if (discovery.StartAsServer())
+		{
+			Debug.Log("Able to send broadcasts.");
+			discovery.StartAsServer();
+		}
 		startServer.SetActive(false);
 		createRoom.SetActive(true);
 		ipText.SetActive(true);

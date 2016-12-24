@@ -11,12 +11,11 @@ public class OverridenNetworkDiscovery : NetworkDiscovery {
 	
 	// Update is called once per frame
 	void Update () {
-	
 	}
 
 	public override void OnReceivedBroadcast(string fromAddress, string data)
 	{
-		base.OnReceivedBroadcast(fromAddress, data);
+		Debug.Log("I work");
 		Debug.Log(fromAddress);
 		NetworkManager.singleton.networkAddress = fromAddress;
 		NetworkManager.singleton.StartClient();
