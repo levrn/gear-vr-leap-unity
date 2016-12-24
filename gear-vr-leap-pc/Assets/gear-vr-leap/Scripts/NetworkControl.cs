@@ -8,13 +8,10 @@ public class NetworkControl : MonoBehaviour
 	public GameObject joinRoom;
 	public GameObject inputField;
 	NetworkManager manager;
-	OverridenNetworkDiscovery discovery;
 	// Use this for initialization
 	void Start()
 	{
 		manager = GetComponent<NetworkManager>();
-		discovery = GetComponent<OverridenNetworkDiscovery>();
-		discovery.Initialize();
 		joinRoom.SetActive(false);
 		inputField.SetActive(false);
 	}
@@ -28,11 +25,6 @@ public class NetworkControl : MonoBehaviour
 
 	public void StartClient()
 	{
-		if (discovery.StartAsClient())
-		{
-			Debug.Log("Able to listen to broadcasts.");
-			discovery.StartAsClient();
-		}
 		startClient.SetActive(false);
 		joinRoom.SetActive(true);
 		inputField.SetActive(true);
