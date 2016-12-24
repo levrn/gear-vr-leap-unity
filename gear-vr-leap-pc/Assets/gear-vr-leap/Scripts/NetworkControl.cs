@@ -4,11 +4,8 @@ using System.Collections;
 
 public class NetworkControl : MonoBehaviour
 {
-	public GameObject startServer;
 	public GameObject startClient;
-	public GameObject createRoom;
 	public GameObject joinRoom;
-	public GameObject ipText;
 	public GameObject inputField;
 	NetworkManager manager;
 	OverridenNetworkDiscovery discovery;
@@ -17,9 +14,7 @@ public class NetworkControl : MonoBehaviour
 	{
 		manager = GetComponent<NetworkManager>();
 		discovery = GetComponent<OverridenNetworkDiscovery>();
-		createRoom.SetActive(false);
 		joinRoom.SetActive(false);
-		ipText.SetActive(false);
 		inputField.SetActive(false);
 	}
 
@@ -29,31 +24,16 @@ public class NetworkControl : MonoBehaviour
 
 	}
 
-	public void StartServer()
-	{
-		startServer.SetActive(false);
-		startClient.SetActive(false);
-		createRoom.SetActive(true);
-		ipText.SetActive(true);
-	}
 
 	public void StartClient()
 	{
 		discovery.Initialize();
 		discovery.StartAsClient();
-		startServer.SetActive(false);
 		startClient.SetActive(false);
 		joinRoom.SetActive(true);
 		inputField.SetActive(true);
 	}
 
-	public void CreateRoom()
-	{
-		if (!NetworkClient.active && !NetworkServer.active && manager.matchMaker == null)
-		{
-			manager.StartServer();
-		}
-	}
 
 	public void JoinRoom()
 	{
