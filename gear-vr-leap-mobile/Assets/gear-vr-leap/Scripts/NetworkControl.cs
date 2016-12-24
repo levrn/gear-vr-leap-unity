@@ -5,11 +5,8 @@ using System.Collections;
 public class NetworkControl : MonoBehaviour
 {
 	public GameObject startServer;
-	public GameObject startClient;
 	public GameObject createRoom;
-	public GameObject joinRoom;
 	public GameObject ipText;
-	public GameObject inputField;
 	NetworkManager manager;
 	NetworkDiscovery discovery;
 	// Use this for initialization
@@ -18,9 +15,7 @@ public class NetworkControl : MonoBehaviour
 		manager = GetComponent<NetworkManager>();
 		discovery = GetComponent<NetworkDiscovery>();
 		createRoom.SetActive(false);
-		joinRoom.SetActive(false);
 		ipText.SetActive(false);
-		inputField.SetActive(false);
 	}
 
 	// Update is called once per frame
@@ -34,18 +29,10 @@ public class NetworkControl : MonoBehaviour
 		discovery.Initialize();
 		discovery.StartAsServer();
 		startServer.SetActive(false);
-		startClient.SetActive(false);
 		createRoom.SetActive(true);
 		ipText.SetActive(true);
 	}
 
-	public void StartClient()
-	{
-		startServer.SetActive(false);
-		startClient.SetActive(false);
-		joinRoom.SetActive(true);
-		inputField.SetActive(true);
-	}
 
 	public void CreateRoom()
 	{
@@ -55,11 +42,4 @@ public class NetworkControl : MonoBehaviour
 		}
 	}
 
-	public void JoinRoom()
-	{
-		if (!NetworkClient.active && !NetworkServer.active && manager.matchMaker == null)
-		{
-			manager.StartClient();
-		}
-	}
 }
